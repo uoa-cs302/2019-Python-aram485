@@ -17,7 +17,7 @@ const = Constants()
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.connect(('8.8.8.8', 1))  # connect() for UDP doesn't send packets
-local_ip_address = s.getsockname()[0]
+local_ip_address = "" + socket.gethostbyname(socket.gethostname()) + ":" + "10051"
 
 def getReportedUsers(username):
     apikey = minions.get_api_key(username)
@@ -216,7 +216,7 @@ def report(username, api_key, pubkey, status):
         status = "offline"
 
     data = {
-        "connection_address": str(local_ip_address),
+        "connection_address": local_ip_address,
         "connection_location": 1,
         "incoming_pubkey": pubkey,
         "status": status
