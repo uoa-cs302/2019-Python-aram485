@@ -26,7 +26,7 @@ s.connect(('8.8.8.8', 1))  # connect() for UDP doesn't send packets
 local_ip_address = s.getsockname()[0]
 
 LISTEN_IP = "0.0.0.0"
-LISTEN_PORT = 1234
+LISTEN_PORT = 10051
 # LISTEN_PORT = 10345
 # LISTEN_IP = str(local_ip_address)
 
